@@ -40,9 +40,6 @@
     <Filter Include="Header Files\MainMenu">
       <UniqueIdentifier>{acb4b93f-c739-4446-8059-fa8eb2cee690}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MainMenu">
-      <UniqueIdentifier>{93d41403-77ff-4e7b-b0d2-891ce769e440}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Utility">
       <UniqueIdentifier>{21dcfa02-84d5-418b-b2fa-35d9781add38}</UniqueIdentifier>
     </Filter>
@@ -51,163 +48,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="System.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source Files\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files\GamePlay</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Wave.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="Shop.cpp">
-      <Filter>Source Files\GamePlay</Filter>
-    </ClCompile>
-    <ClCompile Include="SplashScreen.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Audio.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="Credit.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Settings.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Tutorial.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Leaderboard.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Load.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameStateList.hpp">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateManager.hpp">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.hpp">
-      <Filter>Header Files\Render</Filter>
-    </ClInclude>
     <ClInclude Include="pch.hpp">
       <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="System.hpp">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="Gameplay.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.hpp">
-      <Filter>Header Files\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Wave.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Shop.hpp">
-      <Filter>Header Files\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="SplashScreen.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Audio.hpp">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="Credit.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Settings.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Tutorial.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Leaderboard.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="Load.hpp">
-      <Filter>Header Files\MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInterface.hpp">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.hpp">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.hpp">
-      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
