@@ -22,6 +22,10 @@ All content � 2024 DigiPen Institute of Technology Singapore, all rights reser
 #include <array>
 #include <algorithm>
 
-#include "AEEngine.h"
+#include "SFML\Graphics.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\System.hpp"
+#include "SFML\Window.hpp"
+
 
 #endif //PCH_H
