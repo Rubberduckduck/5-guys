@@ -59,6 +59,7 @@ int main()
 
 			while (window.pollEvent(event))
 			{
+
 				//Updating Global Variables
 				windowSize = static_cast<sf::Vector2f> (window.getSize());
 				windowHeight = windowSize.y;
@@ -70,14 +71,18 @@ int main()
 				deltaTime = clockObj.getElapsedTime().asSeconds();
 				gsRunTime += deltaTime;
 
-				fpUpdate();
-				fpDraw();
-
 				if (event.type == sf::Event::Closed)
 				{
 					SystemExit();
 				}
 			}
+
+			fpUpdate();
+
+			// Clear window 
+			window.clear();
+
+			fpDraw();
 
 			window.display();
 		}

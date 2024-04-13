@@ -69,6 +69,9 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\MainMenu</Filter>
     </ClCompile>
+    <ClCompile Include="Load.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp">
