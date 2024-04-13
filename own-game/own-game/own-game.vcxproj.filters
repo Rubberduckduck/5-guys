@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Utility">
       <UniqueIdentifier>{9e9ca281-a13f-4278-ac5d-16211d2c931b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MainMenu">
+      <UniqueIdentifier>{d5074c32-872b-4811-b4ee-c77255b50fe3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -57,10 +60,31 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateManager.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\MainMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp">
       <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateManager.hpp">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateList.hpp">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.hpp">
+      <Filter>Header Files\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
