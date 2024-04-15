@@ -54,22 +54,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="System.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateManager.cpp">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files\MainMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="Load.cpp">
       <Filter>Source Files\System</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,17 +65,11 @@
     <ClInclude Include="pch.hpp">
       <Filter>Header Files\System</Filter>
     </ClInclude>
-    <ClInclude Include="System.hpp">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
     <ClInclude Include="GameStateManager.hpp">
       <Filter>Header Files\System</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateList.hpp">
+    <ClInclude Include="State.hpp">
       <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.hpp">
-      <Filter>Header Files\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

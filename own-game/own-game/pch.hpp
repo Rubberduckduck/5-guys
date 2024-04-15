@@ -21,6 +21,9 @@ All content � 2024 DigiPen Institute of Technology Singapore, all rights reser
 #include <vector>
 #include <array>
 #include <algorithm>
+#include <memory>
+#include <stack>
+
 
 #include "SFML\Graphics.hpp"
 #include "SFML\Audio.hpp"
