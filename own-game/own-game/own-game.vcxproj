@@ -117,6 +117,7 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -127,6 +128,7 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="GameLoop.hpp" />
     <ClInclude Include="GameStateManager.hpp" />
     <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="pch.hpp" />
