@@ -118,6 +118,7 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -127,6 +128,7 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="GameStateManager.hpp" />
+    <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="pch.hpp" />
     <ClInclude Include="State.hpp" />
   </ItemGroup>
