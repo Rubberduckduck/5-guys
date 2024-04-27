@@ -23,6 +23,7 @@ All content � 2024 DigiPen Institute of Technology Singapore, all rights reser
 #include <algorithm>
 #include <memory>
 #include <stack>
+#include <map>
 
 
 #include "SFML\Graphics.hpp"

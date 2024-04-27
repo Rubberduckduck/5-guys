@@ -1,14 +1,13 @@
 #pragma once
 
-#include <stack>
-#include <memory>
+#include "pch.hpp"
 
 #include "State.hpp"
 
 #ifndef STATEMANAGER
 #define STATEMANAGER
 
-namespace gameState {
+namespace ownProject {
 
 	// Typedef for unique ptrs for state
 	
@@ -23,7 +22,7 @@ namespace gameState {
 		stateManager() {}
 		virtual ~stateManager() {}
 		
-		void AddState(stateRef newState, bool isReplacing = false); // isReplaced boolean is used for replacing current state
+		void AddState(stateRef newState, bool isReplacing = false); // isReplacing boolean is used for replacing current state
 		void RemoveState();
 
 		void UpdateStates();

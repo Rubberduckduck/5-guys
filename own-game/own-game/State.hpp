@@ -8,7 +8,7 @@
 * Initializing base state for inheritance 
 ****************************************/
 
-namespace gameState {
+namespace ownProject {
 
 	class state
 	{
@@ -19,7 +19,7 @@ namespace gameState {
 		virtual void Update() = 0;
 		virtual void draw(float dt) = 0;
 
-		// Pause and resume ste
+		// Pause and resume state
 		virtual void Pause() {}
 		virtual void Resume() {}
 

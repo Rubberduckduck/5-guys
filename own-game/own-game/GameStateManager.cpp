@@ -1,7 +1,7 @@
 #include "pch.hpp"
 #include "GameStateManager.hpp"
 
-namespace gameState {
+namespace ownProject {
 
 	void stateManager::AddState(stateRef newState, bool isReplacing)
 	{
