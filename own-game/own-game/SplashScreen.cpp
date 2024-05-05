@@ -2,7 +2,7 @@
 #include "SplashScreen.hpp"
 #include "Defines.hpp"
 
-sf::Uint8 splashOpacity;
+unsigned int splashOpacity;
 float splashTimer{};
 
 
@@ -72,13 +72,13 @@ namespace ownProject {
 		// Convert fraction to opacity in the range of 0-255
 		// SF::Uint8 is unsigned int, as we need opacity to be in 0-255 range, no negative
 		// Once we have fractionElapsed, we multiply it by 255 to map it to the range of 0 to 255, which corresponds to the range of opacity values. 
-		splashOpacity = static_cast<sf::Uint8>(fractionElapsed * 255);
+		splashOpacity = static_cast<unsigned int>(fractionElapsed * 255);
 
 		// Update opacity of splashscreen
-		splashSprite.setColor(sf::Color(255, 255, 255, splashOpacity));
+		splashSprite.setColor(sf::Color(255, 255, 255, static_cast<sf::Uint8>(splashOpacity)));
 	}
 
-	void SplashScreen::draw(float dt)
+	void SplashScreen::Draw(float dt)
 	{
 		static_cast<void>(dt);
 

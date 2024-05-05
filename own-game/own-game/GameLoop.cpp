@@ -61,7 +61,7 @@ namespace ownProject
 				or other properties of game objects based on the current interpolation value, ensuring smooth rendering between frames.
 			*/
 			interpolation = accumulatedTime / deltaTime;
-			this->data->stateManager.GetActiveState()->draw(interpolation);
+			this->data->stateManager.GetActiveState()->Draw(interpolation);
 		}
 
 	}

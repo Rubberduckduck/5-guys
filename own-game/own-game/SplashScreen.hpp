@@ -18,7 +18,7 @@ namespace ownProject {
 		void Init();
 		void HandleInput();
 		void Update(float dt);
-		void draw(float dt);
+		void Draw(float dt);
 
 	private:
 		gameDataRef data;
