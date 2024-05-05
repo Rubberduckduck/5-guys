@@ -125,13 +125,16 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="Defines.hpp" />
     <ClInclude Include="GameLoop.hpp" />
     <ClInclude Include="GameStateManager.hpp" />
     <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="pch.hpp" />
+    <ClInclude Include="SplashScreen.hpp" />
     <ClInclude Include="State.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
