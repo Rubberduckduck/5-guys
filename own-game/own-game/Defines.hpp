@@ -10,6 +10,6 @@
 #define WINDOW_WIDTH 1600
 #define WINDOW_HEIGHT 900
 
-#define SPLASHSCREEN_TIME 3.0
+#define SPLASHSCREEN_TIME 3.0f
 
 #define SPLASHSCREEN_TEXTURE "Assets/UI Assets/Container Beige.png"
