@@ -1,5 +1,6 @@
 #include "pch.hpp"
-#include "SplashScreen.hpp"
+#include "splashScreen.hpp"
+#include "MainMenu.hpp"
 #include "Defines.hpp"
 
 unsigned int splashOpacity;
@@ -8,9 +9,9 @@ float splashTimer{};
 
 namespace ownProject {
 
-	SplashScreen::SplashScreen(gameDataRef paramData) : data(paramData) {}
+	splashScreen::splashScreen(gameDataRef paramData) : data(paramData) {}
 
-	void SplashScreen::Init()
+	void splashScreen::Init()
 	{
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("splashScreen texture", SPLASHSCREEN_TEXTURE);
@@ -26,7 +27,7 @@ namespace ownProject {
 		splashSprite.setPosition(this->data->window.getView().getCenter());
 	}
 
-	void SplashScreen::HandleInput()
+	void splashScreen::HandleInput()
 	{
 		sf::Event event;
 
@@ -42,7 +43,7 @@ namespace ownProject {
 		}
 	}
 
-	void SplashScreen::Update(float dt)
+	void splashScreen::Update(float dt)
 	{
 		static_cast<void>(dt);
 
@@ -63,6 +64,7 @@ namespace ownProject {
 
 			// For now, use print statement check
 			std::cout << "MAIN MENU" << std::endl;
+			data->stateManager.AddState(stateRef(new mainMenu(this->data)));
 		}
 
 		// Purpose of this: 
@@ -78,7 +80,7 @@ namespace ownProject {
 		splashSprite.setColor(sf::Color(255, 255, 255, static_cast<sf::Uint8>(splashOpacity)));
 	}
 
-	void SplashScreen::Draw(float dt)
+	void splashScreen::Draw(float dt)
 	{
 		static_cast<void>(dt);
 

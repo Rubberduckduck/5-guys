@@ -10,7 +10,7 @@ namespace ownProject
 		// i wan the window to have a close and title bar
 		data->window.create(sf::VideoMode(windowWidth, windowHeight), 
 			windowTitle, sf::Style::Close | sf::Style::Titlebar);
-		data->stateManager.AddState(stateRef(new SplashScreen(this->data)));
+		data->stateManager.AddState(stateRef(new splashScreen(this->data)));
 
 		this->run();
 	}

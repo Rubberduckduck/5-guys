@@ -9,10 +9,10 @@
 
 
 namespace ownProject {
-	class splashScreen : public state
+	class mainMenu : public state
 	{
 	public:
-		splashScreen(gameDataRef paramData);
+		mainMenu(gameDataRef paramData);
 
 		// State functions
 		void Init();
@@ -25,8 +25,8 @@ namespace ownProject {
 		sf::Clock clock;
 
 		// For rendering texture
-		sf::Texture splashTexture;
-		sf::Sprite splashSprite;
+		sf::Texture mainMenuTexture;
+		sf::Sprite mainMenuSprite;
 	};
 }
 
