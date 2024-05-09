@@ -2,6 +2,7 @@
 #include "splashScreen.hpp"
 #include "MainMenu.hpp"
 #include "Defines.hpp"
+#include "Utils.hpp"
 
 unsigned int splashOpacity;
 float splashTimer{};
@@ -17,12 +18,8 @@ namespace ownProject {
 		data->assetManager.LoadTexture("splashScreen texture", SPLASHSCREEN_TEXTURE);
 		splashSprite.setTexture(this->data->assetManager.GetTexture("splashScreen texture"));
 
-		// Center image
-		sf::FloatRect tempRect = splashSprite.getLocalBounds();
-
 		// To set image origin to center of sprite, SFML default is top left
-		splashSprite.setOrigin(tempRect.left + tempRect.width / 2.0f,
-			tempRect.top + tempRect.height / 2.0f);
+		splashSprite.setOrigin(setSpriteOrigin(splashSprite.getLocalBounds()));
 		// Set sprite position to center of screen
 		splashSprite.setPosition(this->data->window.getView().getCenter());
 	}
@@ -40,6 +37,10 @@ namespace ownProject {
 			{
 				data->window.close();
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				data->stateManager.AddState(stateRef(new mainMenu(this->data)));
+			}
 		}
 	}
 
@@ -53,17 +54,8 @@ namespace ownProject {
 			// += to fade out
 			// -= to fade in
 			splashTimer += clock.restart().asSeconds();
-			//if (splashTimer < 0) {
-			//	// Ensure splashTimer doesn't go negative
-			//	splashTimer = 0;
-			//}
-
-			std::cout << splashTimer << std::endl;
 		}
 		else {
-
-			// For now, use print statement check
-			std::cout << "MAIN MENU" << std::endl;
 			data->stateManager.AddState(stateRef(new mainMenu(this->data)));
 		}
 

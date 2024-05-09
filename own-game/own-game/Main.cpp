@@ -10,6 +10,8 @@
 * VARIABLE TYPES: 
 * FOR FLOAT AND INT TYPES: USE BUILT-IN TYPES (e.g float, double)
 * 
+* ALL TO WORK UNDER NAMESPACE "ownProject" UNLESS STATED OTHERWISE
+* 
 *******************************************************************/
 
 
@@ -19,6 +21,8 @@
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	ownProject::gameLoop(WINDOW_HEIGHT, WINDOW_WIDTH, "BRY OWN SIMULATIONS");
 	// TEMPORARY
 	return EXIT_SUCCESS;

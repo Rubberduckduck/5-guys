@@ -13,3 +13,10 @@
 #define SPLASHSCREEN_TIME 3.0f
 
 #define SPLASHSCREEN_TEXTURE "Assets/UI Assets/Container Beige.png"
+
+#define MAIN_MENU_BUTTON_TEXTURE "Assets/UI Assets/Button Beige.png"
+
+
+// BUTTON PROPERTIES
+#define BUTTON_SCALE 50.f
+

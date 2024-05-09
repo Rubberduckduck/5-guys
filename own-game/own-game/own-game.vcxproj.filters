@@ -75,6 +75,9 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\MainMenu</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="MainMenu.hpp">
       <Filter>Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.hpp">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
