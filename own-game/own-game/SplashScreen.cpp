@@ -18,6 +18,9 @@ namespace ownProject {
 		data->assetManager.LoadTexture("splashScreen texture", SPLASHSCREEN_TEXTURE);
 		splashSprite.setTexture(this->data->assetManager.GetTexture("splashScreen texture"));
 
+		// Load font 
+		data->assetManager.LoadFont("UI font", FONT);
+
 		// To set image origin to center of sprite, SFML default is top left
 		splashSprite.setOrigin(setSpriteOrigin(splashSprite.getLocalBounds()));
 		// Set sprite position to center of screen
@@ -37,7 +40,7 @@ namespace ownProject {
 			{
 				data->window.close();
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
 				data->stateManager.AddState(stateRef(new mainMenu(this->data)));
 			}

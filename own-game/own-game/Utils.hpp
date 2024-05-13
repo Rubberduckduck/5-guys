@@ -11,9 +11,11 @@ namespace ownProject {
 	public:
 		button(float paramScale, sf::Vector2f paramPos, std::string paramText);
 		float getBtnScale();
+		float getBtnScale() const;
 		sf::Vector2f getBtnPos();
 		sf::Vector2f getBtnPos() const;
 		std::string getBtnText();
+		std::string getBtnText() const;
 
 		void setBtnPos(float paramPosX, float paramPosY);
 
@@ -30,7 +32,7 @@ namespace ownProject {
 		void addButton(float paramScale, float paramPosX, float paramPosY, std::string paramText);
 		void AutoArrange(bool init);
 		void fade(int type, float duration = 1.0f, float targetAlpha = 1.0f, bool scaleSize = true, bool up = true, float speed = 1.0f);
-		void draw(sf::RenderWindow& paramWindow, sf::Sprite paramBtnSprite);
+		void draw(sf::RenderWindow& paramWindow, sf::Sprite paramBtnSprite, sf::Text paramBtnText);
 
 	private:
 		float buttonMargin;

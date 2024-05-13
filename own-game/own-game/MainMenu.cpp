@@ -17,6 +17,9 @@ namespace ownProject {
 		// To set image origin to center of sprite, SFML default is top left
 		mainMenuBtnSprite.setOrigin(setSpriteOrigin(mainMenuBtnSprite.getLocalBounds()));
 
+		// Set font
+		mainMenuBtnText.setFont(this->data->assetManager.GetFont("UI font"));
+
 
 		// Init buttons
 		sf::Vector2f startingButton{ 800.f,450.f };
@@ -51,7 +54,7 @@ namespace ownProject {
 	void mainMenu::Draw(float dt)
 	{
 		static_cast<void>(dt);
-		mainMenuBtns->draw(data->window, mainMenuBtnSprite);
+		mainMenuBtns->draw(data->window, mainMenuBtnSprite, mainMenuBtnText);
 	}
 
 

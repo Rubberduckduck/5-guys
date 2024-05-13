@@ -7,16 +7,22 @@
 
 #pragma once
 
+
 #define WINDOW_WIDTH 1600
 #define WINDOW_HEIGHT 900
 
 #define SPLASHSCREEN_TIME 3.0f
 
+
+// FILE PATHS
 #define SPLASHSCREEN_TEXTURE "Assets/UI Assets/Container Beige.png"
 
 #define MAIN_MENU_BUTTON_TEXTURE "Assets/UI Assets/Button Beige.png"
 
+#define FONT "Assets/Font/Kenney Future Narrow.ttf"
+
 
 // BUTTON PROPERTIES
-#define BUTTON_SCALE 50.f
+#define BUTTON_SCALE 1.2f
+#define TEXT_SCALE 24.f
 

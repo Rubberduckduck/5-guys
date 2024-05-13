@@ -1,5 +1,6 @@
 #include "pch.hpp"
 #include "Utils.hpp"
+#include "Defines.hpp"
 
 namespace ownProject {
 	button::button(float paramScale, sf::Vector2f paramPos, std::string paramText) 
@@ -8,6 +9,11 @@ namespace ownProject {
 	}
 
 	float button::getBtnScale()
+	{
+		return btnScale;
+	}
+
+	float button::getBtnScale() const
 	{
 		return btnScale;
 	}
@@ -23,6 +29,11 @@ namespace ownProject {
 	}
 
 	std::string button::getBtnText()
+	{
+		return btnText;
+	}
+
+	std::string button::getBtnText() const
 	{
 		return btnText;
 	}
@@ -63,15 +74,27 @@ namespace ownProject {
 		// MAYB OTTHER DAYS HEHE
 	}
 
-	void buttonPopUp::draw(sf::RenderWindow& window, sf::Sprite paramBtnSprite)
+	void buttonPopUp::draw(sf::RenderWindow& window, sf::Sprite paramBtnSprite, sf::Text paramBtnText)
 	{
+
+		// CHANGE PASS BY VALUE TO PASS BY REFERENCE FOR PARAM!!
+
 		window.clear();
 		for (button const& elem : buttonArray)
 		{
 
 			paramBtnSprite.setPosition(elem.getBtnPos());
+			paramBtnSprite.setScale(elem.getBtnScale(),elem.getBtnScale());
 			// To draw button
 			window.draw(paramBtnSprite);
+
+			// To draw text
+			paramBtnText.setString(elem.getBtnText());
+			paramBtnText.setPosition(elem.getBtnPos());
+			paramBtnText.setCharacterSize(TEXT_SCALE);
+			paramBtnText.setFillColor(sf::Color::White);
+
+			window.draw(paramBtnText);
 
 			
 		}

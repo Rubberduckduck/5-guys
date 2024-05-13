@@ -31,6 +31,9 @@ namespace ownProject {
 		// For button texture and sprite
 		sf::Texture mainMenuBtnTexture;
 		sf::Sprite mainMenuBtnSprite;
+
+		// For rendering text
+		sf::Text mainMenuBtnText;
 	};
 }
 
