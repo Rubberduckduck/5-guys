@@ -43,6 +43,7 @@ namespace ownProject {
 		gameDataRef data = std::make_shared<gameData>();
 
 		void run();
+		void free();
 	};
 
 }

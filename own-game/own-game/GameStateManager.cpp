@@ -2,7 +2,6 @@
 #include "GameStateManager.hpp"
 
 namespace ownProject {
-
 	void stateManager::AddState(stateRef newState, bool isReplacing)
 	{
 		this->isAdded = true;
@@ -55,9 +54,23 @@ namespace ownProject {
 			this->isAdded = false;
 		}
 	}
+
+	void stateManager::FreeStates()
+	{
+		while (!GameStates.empty()) {
+			GameStates.pop(); 
+		}
+	}
 	stateRef& stateManager::GetActiveState()
 	{
 		return this->GameStates.top();
 	}
+
+	stateManager::~stateManager()
+	{
+		FreeStates();
+	}
+
+
 }
 

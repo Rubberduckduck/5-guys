@@ -38,11 +38,15 @@ namespace ownProject {
 			// To close window properly, without this if statement, window does not close properly
 			if (sf::Event::Closed == event.type)
 			{
+
+				
 				data->window.close();
+				// Free memory
+				//data.reset();
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
-				data->stateManager.AddState(stateRef(new mainMenu(this->data)));
+				data->stateManager.AddState(stateRef(new mainMenu(this->data)),true);
 			}
 		}
 	}
@@ -59,7 +63,7 @@ namespace ownProject {
 			splashTimer += clock.restart().asSeconds();
 		}
 		else {
-			data->stateManager.AddState(stateRef(new mainMenu(this->data)));
+			data->stateManager.AddState(stateRef(new mainMenu(this->data)),true);
 		}
 
 		// Purpose of this: 

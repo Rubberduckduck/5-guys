@@ -20,12 +20,14 @@ namespace ownProject {
 	{
 	public:
 		stateManager() {}
-		virtual ~stateManager() {}
+		virtual ~stateManager();
 		
 		void AddState(stateRef newState, bool isReplacing = false); // isReplacing boolean is used for replacing current state
 		void RemoveState();
 
 		void UpdateStates();
+
+		void FreeStates();
 
 		stateRef& GetActiveState();
 

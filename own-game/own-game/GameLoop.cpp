@@ -64,6 +64,14 @@ namespace ownProject
 			this->data->stateManager.GetActiveState()->Draw(interpolation);
 		}
 
+		// When sf::event::closed, unique and shared ptrs are not cleared properly, hence the 
+		// free function call to clear and reset the smart ptrs
+		free();
+	}
+
+	void gameLoop::free()
+	{
+		data->stateManager.FreeStates();
 	}
 
 
