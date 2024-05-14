@@ -54,7 +54,6 @@ namespace ownProject {
 		// Set button pos
 		setBtnPos(paramPosX, paramPosY); 
 		buttonArray.push_back(button(paramScale, getBtnPos(), paramText));
-		std::cout << getBtnPos().y << std::endl;
 	}
 
 	void buttonPopUp::AutoArrange(bool init)
@@ -90,7 +89,7 @@ namespace ownProject {
 
 			// To draw text
 			paramBtnText.setString(elem.getBtnText());
-			paramBtnText.setPosition(elem.getBtnPos());
+			paramBtnText.setPosition(elem.getBtnPos().x - paramBtnSprite.getGlobalBounds().width / 3, elem.getBtnPos().y - paramBtnSprite.getGlobalBounds().height / 4);
 			paramBtnText.setCharacterSize(TEXT_SCALE);
 			paramBtnText.setFillColor(sf::Color::White);
 
@@ -102,6 +101,16 @@ namespace ownProject {
 	}
 
 	sf::Vector2f setSpriteOrigin(sf::FloatRect tempRect)
+	{
+		sf::Vector2f result;
+
+		result.x = tempRect.left + tempRect.width / 2.0f;
+		result.y = tempRect.top + tempRect.height / 2.0f;
+
+		return result;
+	}
+
+	sf::Vector2f setTextOrigin(sf::FloatRect tempRect)
 	{
 		sf::Vector2f result;
 

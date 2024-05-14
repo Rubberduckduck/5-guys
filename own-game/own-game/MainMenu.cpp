@@ -15,18 +15,21 @@ namespace ownProject {
 		data->assetManager.LoadTexture("mainMenu button texture", MAIN_MENU_BUTTON_TEXTURE);
 		mainMenuBtnSprite.setTexture(this->data->assetManager.GetTexture("mainMenu button texture"));
 		// To set image origin to center of sprite, SFML default is top left
-		mainMenuBtnSprite.setOrigin(setSpriteOrigin(mainMenuBtnSprite.getLocalBounds()));
+		mainMenuBtnSprite.setOrigin(setSpriteOrigin(mainMenuBtnSprite.getGlobalBounds()));
 
 		// Set font
 		mainMenuBtnText.setFont(this->data->assetManager.GetFont("UI font"));
+		// Set text origin
+		mainMenuBtnText.setOrigin(setSpriteOrigin(mainMenuBtnSprite.getGlobalBounds()));
 
 
 		// Init buttons
-		sf::Vector2f startingButton{ 800.f,450.f };
+		sf::Vector2f startingButton{ WINDOW_WIDTH / 2, WINDOW_HEIGHT / 5 };
+		float buttonMargin = WINDOW_HEIGHT / 6;
 		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y, "FIREWORKS (WIP)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + 100.f, "SAND (NOT STARTED)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + 150.f, "WATER (NOT STARTED)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + 200.f, "QUIT");
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin , "SAND (NOT STARTED)");
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 2, "WATER (NOT STARTED)");
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 3, "QUIT");
 	}
 
 	void mainMenu::HandleInput()

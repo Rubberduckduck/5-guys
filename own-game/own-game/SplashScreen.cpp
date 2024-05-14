@@ -22,7 +22,7 @@ namespace ownProject {
 		data->assetManager.LoadFont("UI font", FONT);
 
 		// To set image origin to center of sprite, SFML default is top left
-		splashSprite.setOrigin(setSpriteOrigin(splashSprite.getLocalBounds()));
+		splashSprite.setOrigin(setSpriteOrigin(splashSprite.getGlobalBounds()));
 		// Set sprite position to center of screen
 		splashSprite.setPosition(this->data->window.getView().getCenter());
 	}

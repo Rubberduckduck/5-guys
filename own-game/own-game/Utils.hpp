@@ -41,6 +41,7 @@ namespace ownProject {
 
 	// This is to set sprite origin to center
 	sf::Vector2f setSpriteOrigin(sf::FloatRect tempRect);
+	sf::Vector2f setTextOrigin(sf::FloatRect tempRect);
 }
 
 #endif // UTILS
