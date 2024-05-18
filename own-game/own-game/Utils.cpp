@@ -153,6 +153,8 @@ namespace ownProject {
 
 	void buttonPopUp::buttonUpdate(sf::Mouse& paramMouseBtn, sf::RenderWindow& window, stateManager& paramStateManager)
 	{
+		static_cast<void> (paramStateManager);
+
 		bool buttonClicked = false;
 		for (button& elem : buttonArray)
 		{

@@ -55,6 +55,7 @@ namespace ownProject {
 
 	void mainMenu::Update(float dt)
 	{
+		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
 
 		mainMenuBtns->buttonUpdate(mouse,data->window,data->stateManager);
@@ -63,6 +64,8 @@ namespace ownProject {
 
 	void mainMenu::Draw(float dt)
 	{
+
+		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
 		mainMenuBtns->draw(data->window, mainMenuBtnText);
 	}
