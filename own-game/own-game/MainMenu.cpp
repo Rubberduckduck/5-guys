@@ -26,15 +26,16 @@ namespace ownProject {
 		// Init buttons
 		sf::Vector2f startingButton{ WINDOW_WIDTH / 2, WINDOW_HEIGHT / 5 };
 		float buttonMargin = WINDOW_HEIGHT / 6;
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y, "FIREWORKS (WIP)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin , "SAND (NOT STARTED)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 2, "WATER (NOT STARTED)");
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 3, "QUIT");
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y, "FIREWORKS (WIP)", TYPE_FIREWORKS, mainMenuBtnSprite);
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin , "SAND (NOT STARTED)", TYPE_SAND, mainMenuBtnSprite);
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 2, "WATER (NOT STARTED)", TYPE_WATER, mainMenuBtnSprite);
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 3, "QUIT", TYPE_QUIT, mainMenuBtnSprite);
 	}
 
 	void mainMenu::HandleInput()
 	{
 		sf::Event event;
+		sf::Keyboard keyboard;
 
 		// SFML Style, to handle input using sf::event
 
@@ -45,6 +46,10 @@ namespace ownProject {
 			{
 				data->window.close();
 			}
+			if (keyboard.isKeyPressed(sf::Keyboard::Escape))
+			{
+				data->window.close();
+			}
 		}
 	}
 
@@ -52,18 +57,14 @@ namespace ownProject {
 	{
 		static_cast<void>(dt);
 
-		// Check button clicked 
-		if (mainMenuBtns->isButtonClicked(mainMenuBtnSprite, mouse, data->window))
-		{
-
-		}
+		mainMenuBtns->buttonUpdate(mouse,data->window,data->stateManager);
 
 	}
 
 	void mainMenu::Draw(float dt)
 	{
 		static_cast<void>(dt);
-		mainMenuBtns->draw(data->window, mainMenuBtnSprite, mainMenuBtnText);
+		mainMenuBtns->draw(data->window, mainMenuBtnText);
 	}
 
 

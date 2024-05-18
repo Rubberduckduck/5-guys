@@ -3,9 +3,20 @@
 #include "Defines.hpp"
 
 namespace ownProject {
-	button::button(float paramScale, sf::Vector2f paramPos, std::string paramText) 
-		: btnScale{paramScale}, btnPos{paramPos}, btnText{paramText}
+	button::button(float paramScale, sf::Vector2f paramPos, std::string paramText, buttonID buttonID, sf::Sprite paramSprite)
+		: btnScale{paramScale}, btnPos{paramPos}, btnText{paramText}, btnID{buttonID}, btnSprite{paramSprite}
 	{
+		btnSprite.setPosition(btnPos.x, btnPos.y);
+		btnSprite.setScale(btnScale, btnScale);
+	}
+
+	button::button(float paramScale, float paramPosX, float paramPosY, std::string paramText, buttonID paramButtonID, sf::Sprite paramSprite)
+		: btnScale{ paramScale }, btnText{ paramText }, btnID{ paramButtonID }, btnSprite{ paramSprite }
+	{
+		btnPos.x = paramPosX;
+		btnPos.y = paramPosY;
+		btnSprite.setPosition(btnPos.x, btnPos.y);
+		btnSprite.setScale(btnScale,btnScale);
 	}
 
 	float button::getBtnScale()
@@ -38,6 +49,26 @@ namespace ownProject {
 		return btnText;
 	}
 
+	buttonID button::getBtnID()
+	{
+		return btnID;
+	}
+
+	buttonID button::getBtnID() const
+	{
+		return btnID;
+	}
+
+	sf::Sprite& button::getBtnSprite()
+	{
+		return btnSprite;
+	}
+
+	sf::Sprite button::getBtnSprite() const
+	{
+		return btnSprite;
+	}
+
 	void button::setBtnPos(float paramPosX, float paramPosY)
 	{
 		btnPos.x = paramPosX;
@@ -45,15 +76,15 @@ namespace ownProject {
 	}
 
 	buttonPopUp::buttonPopUp(float paramButtonMargin)
-		: button(getBtnScale(), getBtnPos(), getBtnText()), buttonMargin{paramButtonMargin}
+		: button(getBtnScale(), getBtnPos(), getBtnText(), getBtnID(), getBtnSprite()), buttonMargin{paramButtonMargin}
 	{
 	}
 
-	void buttonPopUp::addButton(float paramScale, float paramPosX, float paramPosY, std::string paramText)
+	void buttonPopUp::addButton(float paramScale, float paramPosX, float paramPosY, std::string paramText, buttonID paramBtnID, sf::Sprite paramSprite)
 	{
 		// Set button pos
-		setBtnPos(paramPosX, paramPosY); 
-		buttonArray.push_back(button(paramScale, getBtnPos(), paramText));
+		setBtnPos(paramPosX,paramPosY);
+		buttonArray.push_back(button(paramScale, getBtnPos(), paramText, paramBtnID, paramSprite));
 	}
 
 	void buttonPopUp::AutoArrange(bool init)
@@ -73,21 +104,18 @@ namespace ownProject {
 		// MAYB OTTHER DAYS HEHE
 	}
 
-	void buttonPopUp::draw(sf::RenderWindow& window, sf::Sprite& paramBtnSprite, sf::Text& paramBtnText)
+	void buttonPopUp::draw(sf::RenderWindow& window, sf::Text& paramBtnText)
 	{
 
 		window.clear();
-		for (button const& elem : buttonArray)
+		for (button& elem : buttonArray)
 		{
-
-			paramBtnSprite.setPosition(elem.getBtnPos());
-			paramBtnSprite.setScale(elem.getBtnScale(),elem.getBtnScale());
 			// To draw button
-			window.draw(paramBtnSprite);
+			window.draw(elem.getBtnSprite());
 
 			// To draw text
 			paramBtnText.setString(elem.getBtnText());
-			paramBtnText.setPosition(elem.getBtnPos().x - paramBtnSprite.getGlobalBounds().width / 3, elem.getBtnPos().y - paramBtnSprite.getGlobalBounds().height / 4);
+			paramBtnText.setPosition(elem.getBtnPos().x - elem.getBtnSprite().getGlobalBounds().width / 3, elem.getBtnPos().y - elem.getBtnSprite().getGlobalBounds().height / 4);
 			paramBtnText.setCharacterSize(TEXT_SCALE);
 			paramBtnText.setFillColor(sf::Color::White);
 
@@ -98,33 +126,70 @@ namespace ownProject {
 		window.display();
 	}
 
-	bool buttonPopUp::isButtonClicked(sf::Sprite& paramBtnSprite, sf::Mouse& paramMouseBtn, sf::RenderWindow& window)
+	bool buttonPopUp::isButtonClicked(button& paramButton,sf::Mouse& paramMouseBtn, sf::RenderWindow& window)
 	{
-		for (button const& elem : buttonArray)
+		float MostTop = paramButton.getBtnPos().y - paramButton.getBtnSprite().getGlobalBounds().height / 2;
+		float MostBot = paramButton.getBtnPos().y + paramButton.getBtnSprite().getGlobalBounds().height / 2;
+		float MostLeft = paramButton.getBtnPos().x - paramButton.getBtnSprite().getGlobalBounds().width / 2;
+		float MostRight = paramButton.getBtnPos().x + paramButton.getBtnSprite().getGlobalBounds().width / 2;
+
+		// Get the current mouse position in the window
+		sf::Vector2i mousePos = paramMouseBtn.getPosition(window);
+
+		// Normalise mouse pos to world coordinates
+		sf::Vector2f mouseNormPos = window.mapPixelToCoords(mousePos);
+
+		float mouseX = mouseNormPos.x;
+		float mouseY = mouseNormPos.y;
+
+		// Checking coordinate 
+		if (mouseX >= MostLeft && mouseX <= MostRight && mouseY >= MostTop && mouseY <= MostBot)
 		{
-			float MostTop = elem.getBtnPos().y - paramBtnSprite.getGlobalBounds().height / 2;
-			float MostBot = elem.getBtnPos().y + paramBtnSprite.getGlobalBounds().height / 2;
-			float MostLeft = elem.getBtnPos().x - paramBtnSprite.getGlobalBounds().width / 2;
-			float MostRight = elem.getBtnPos().x + paramBtnSprite.getGlobalBounds().width / 2;
-
-			// Get the current mouse position in the window
-			sf::Vector2i mousePos = paramMouseBtn.getPosition(window);
-
-			// Normalise mouse pos to world coordinates
-			sf::Vector2f mouseNormPos = window.mapPixelToCoords(mousePos);
-
-			float mouseX = mouseNormPos.x;
-			float mouseY = mouseNormPos.y;
-
-			// Checking coordinate 
-			if (mouseX >= MostLeft && mouseX <= MostRight && mouseY >= MostTop && mouseY <= MostBot)
-			{
-				std::cout << "button clicked" << std::endl;
-				return true;
-			}
+			return true;
 		}
 
 		return false;
+	}
+
+	void buttonPopUp::buttonUpdate(sf::Mouse& paramMouseBtn, sf::RenderWindow& window, stateManager& paramStateManager)
+	{
+		bool buttonClicked = false;
+		for (button& elem : buttonArray)
+		{
+			if (isButtonClicked(elem, paramMouseBtn, window) && paramMouseBtn.isButtonPressed(sf::Mouse::Left))
+			{
+				buttonClicked = true; 
+				switch (elem.getBtnID())
+				{
+				case TYPE_FIREWORKS:
+					std::cout << "fireworks button clicked" << std::endl;
+					break;
+
+				case TYPE_SAND:
+					std::cout << "sand button clicked" << std::endl;
+					break;
+
+				case TYPE_WATER:
+					std::cout << "water button clicked" << std::endl;
+					break;
+
+				case TYPE_QUIT:
+					std::cout << "quit button clicked" << std::endl;
+					window.close();
+					break;
+
+				default:
+					break;
+				}
+				break;
+			}
+		}
+
+		// This is to break out of for loop, once one button clicked no need continue iteration
+		if (buttonClicked)
+		{
+			return;
+		}
 	}
 
 	sf::Vector2f setSpriteOrigin(sf::FloatRect tempRect)
