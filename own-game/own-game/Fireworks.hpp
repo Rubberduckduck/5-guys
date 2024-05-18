@@ -8,6 +8,7 @@
 #include "GameLoop.hpp"
 
 namespace ownProject {
+
 	class fireworks : public state
 	{
 	public:

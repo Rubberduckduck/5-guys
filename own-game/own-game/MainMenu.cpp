@@ -9,8 +9,16 @@ namespace ownProject {
 
 	mainMenu::mainMenu(gameDataRef paramData) : data{paramData} {}
 
+	mainMenu::~mainMenu()
+	{
+		data->window.clear();
+	}
+
 	void mainMenu::Init()
 	{
+
+		std::cout << "mainMenu" << std::endl;
+
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("mainMenu button texture", MAIN_MENU_BUTTON_TEXTURE);
 		mainMenuBtnSprite.setTexture(this->data->assetManager.GetTexture("mainMenu button texture"));
@@ -58,7 +66,7 @@ namespace ownProject {
 		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
 
-		mainMenuBtns->buttonUpdate(mouse,data->window,data->stateManager);
+		mainMenuBtns->buttonUpdate(mouse, data);
 
 	}
 

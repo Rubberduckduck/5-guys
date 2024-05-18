@@ -1,6 +1,7 @@
 #include "pch.hpp"
 #include "Utils.hpp"
 #include "Defines.hpp"
+#include "Fireworks.hpp"
 
 namespace ownProject {
 	button::button(float paramScale, sf::Vector2f paramPos, std::string paramText, buttonID buttonID, sf::Sprite paramSprite)
@@ -151,20 +152,20 @@ namespace ownProject {
 		return false;
 	}
 
-	void buttonPopUp::buttonUpdate(sf::Mouse& paramMouseBtn, sf::RenderWindow& window, stateManager& paramStateManager)
+	void buttonPopUp::buttonUpdate(sf::Mouse& paramMouseBtn, gameDataRef& paramData)
 	{
-		static_cast<void> (paramStateManager);
 
 		bool buttonClicked = false;
 		for (button& elem : buttonArray)
 		{
-			if (isButtonClicked(elem, paramMouseBtn, window) && paramMouseBtn.isButtonPressed(sf::Mouse::Left))
+			if (isButtonClicked(elem, paramMouseBtn, paramData->window) && paramMouseBtn.isButtonPressed(sf::Mouse::Left))
 			{
 				buttonClicked = true; 
 				switch (elem.getBtnID())
 				{
 				case TYPE_FIREWORKS:
-					std::cout << "fireworks button clicked" << std::endl;
+					deleteButton();
+					paramData->stateManager.AddState(stateRef(new fireworks(paramData)),true);
 					break;
 
 				case TYPE_SAND:
@@ -176,8 +177,8 @@ namespace ownProject {
 					break;
 
 				case TYPE_QUIT:
-					std::cout << "quit button clicked" << std::endl;
-					window.close();
+					deleteButton();
+					paramData->window.close();
 					break;
 
 				default:
@@ -192,6 +193,15 @@ namespace ownProject {
 		{
 			return;
 		}
+	}
+
+	void buttonPopUp::deleteButton()
+	{
+		while (!buttonArray.empty())
+		{
+			buttonArray.pop_back();
+		}
+		
 	}
 
 	sf::Vector2f setSpriteOrigin(sf::FloatRect tempRect)

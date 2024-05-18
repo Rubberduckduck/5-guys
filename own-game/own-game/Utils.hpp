@@ -49,7 +49,8 @@ namespace ownProject {
 		void fade(int type, float duration = 1.0f, float targetAlpha = 1.0f, bool scaleSize = true, bool up = true, float speed = 1.0f);
 		void draw(sf::RenderWindow& paramWindow, sf::Text& paramBtnText);
 		bool isButtonClicked(button& paramButton,sf::Mouse& paramMouseBtn, sf::RenderWindow& window);
-		void buttonUpdate(sf::Mouse& paramMouseBtn, sf::RenderWindow& window, stateManager& paramStateManager);
+		void buttonUpdate(sf::Mouse& paramMouseBtn, gameDataRef& paramData);
+		void deleteButton();
 
 	private:
 		float buttonMargin;

@@ -13,6 +13,7 @@ namespace ownProject {
 	{
 	public:
 		mainMenu(gameDataRef paramData);
+		~mainMenu();
 
 		// State functions
 		void Init();
