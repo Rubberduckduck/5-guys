@@ -3,4 +3,8 @@
 #define PARTICLESYSTEM
 #ifdef PARTICLESYSTEM
 
+namespace ownProject {
+
+}
+
 #endif
