@@ -23,6 +23,6 @@
 
 
 // BUTTON PROPERTIES
-#define BUTTON_SCALE 1.2f
-#define TEXT_SCALE 24.f
+#define BUTTON_SCALE 1.5f
+#define TEXT_SCALE 24
 

@@ -23,6 +23,7 @@ namespace ownProject {
 	private:
 		gameDataRef data;
 		sf::Clock clock;
+		sf::Mouse mouse;
 
 		// For rendering texture
 		sf::Texture mainMenuTexture;

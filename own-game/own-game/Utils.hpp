@@ -4,6 +4,7 @@
 #ifdef UTILS
 
 #include "pch.hpp"
+#include "GameLoop.hpp"
 
 namespace ownProject {
 	class button
@@ -32,7 +33,8 @@ namespace ownProject {
 		void addButton(float paramScale, float paramPosX, float paramPosY, std::string paramText);
 		void AutoArrange(bool init);
 		void fade(int type, float duration = 1.0f, float targetAlpha = 1.0f, bool scaleSize = true, bool up = true, float speed = 1.0f);
-		void draw(sf::RenderWindow& paramWindow, sf::Sprite paramBtnSprite, sf::Text paramBtnText);
+		void draw(sf::RenderWindow& paramWindow, sf::Sprite& paramBtnSprite, sf::Text& paramBtnText);
+		bool isButtonClicked(sf::Sprite& paramBtnSprite, sf::Mouse& paramMouseBtn, sf::RenderWindow& window);
 
 	private:
 		float buttonMargin;

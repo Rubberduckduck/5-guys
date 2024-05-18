@@ -52,6 +52,12 @@ namespace ownProject {
 	{
 		static_cast<void>(dt);
 
+		// Check button clicked 
+		if (mainMenuBtns->isButtonClicked(mainMenuBtnSprite, mouse, data->window))
+		{
+
+		}
+
 	}
 
 	void mainMenu::Draw(float dt)

@@ -73,10 +73,8 @@ namespace ownProject {
 		// MAYB OTTHER DAYS HEHE
 	}
 
-	void buttonPopUp::draw(sf::RenderWindow& window, sf::Sprite paramBtnSprite, sf::Text paramBtnText)
+	void buttonPopUp::draw(sf::RenderWindow& window, sf::Sprite& paramBtnSprite, sf::Text& paramBtnText)
 	{
-
-		// CHANGE PASS BY VALUE TO PASS BY REFERENCE FOR PARAM!!
 
 		window.clear();
 		for (button const& elem : buttonArray)
@@ -98,6 +96,35 @@ namespace ownProject {
 			
 		}
 		window.display();
+	}
+
+	bool buttonPopUp::isButtonClicked(sf::Sprite& paramBtnSprite, sf::Mouse& paramMouseBtn, sf::RenderWindow& window)
+	{
+		for (button const& elem : buttonArray)
+		{
+			float MostTop = elem.getBtnPos().y - paramBtnSprite.getGlobalBounds().height / 2;
+			float MostBot = elem.getBtnPos().y + paramBtnSprite.getGlobalBounds().height / 2;
+			float MostLeft = elem.getBtnPos().x - paramBtnSprite.getGlobalBounds().width / 2;
+			float MostRight = elem.getBtnPos().x + paramBtnSprite.getGlobalBounds().width / 2;
+
+			// Get the current mouse position in the window
+			sf::Vector2i mousePos = paramMouseBtn.getPosition(window);
+
+			// Normalise mouse pos to world coordinates
+			sf::Vector2f mouseNormPos = window.mapPixelToCoords(mousePos);
+
+			float mouseX = mouseNormPos.x;
+			float mouseY = mouseNormPos.y;
+
+			// Checking coordinate 
+			if (mouseX >= MostLeft && mouseX <= MostRight && mouseY >= MostTop && mouseY <= MostBot)
+			{
+				std::cout << "button clicked" << std::endl;
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	sf::Vector2f setSpriteOrigin(sf::FloatRect tempRect)
