@@ -165,7 +165,7 @@ namespace ownProject {
 				{
 				case TYPE_FIREWORKS:
 					deleteButton();
-					paramData->stateManager.AddState(stateRef(new fireworks(paramData)),true);
+					paramData->stateManager.AddState(stateRef(new fireworks	(paramData)),true);
 					break;
 
 				case TYPE_SAND:

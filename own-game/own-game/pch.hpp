@@ -1,14 +1,4 @@
-﻿/*****************************************************************************************************************
-@file         pch.hpp
-@project      MONKEE MANIA
-@author       Ho Shu Hng (100%)
-@co-authors
-@brief        This file is the pre-compiled header file for all the C++ libraries that we would require
-
-All content � 2024 DigiPen Institute of Technology Singapore, all rights reserved.
-******************************************************************************************************************/
-
-#pragma once
+﻿#pragma once
 
 #ifndef PCH_H
 #define PCH_H
