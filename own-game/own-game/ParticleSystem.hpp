@@ -3,6 +3,8 @@
 #define PARTICLESYSTEM
 #ifdef PARTICLESYSTEM
 
+#include "Defines.hpp"
+
 namespace ownProject {
 
 	// What properties of one particle have? (Entity)

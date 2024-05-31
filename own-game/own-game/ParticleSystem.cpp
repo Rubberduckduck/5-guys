@@ -3,7 +3,7 @@
 
 namespace ownProject {
 
-	particle::particle() {}
+	// particle::particle() {}
 
 	particle::particle(sf::Vector2i setScale, sf::Vector2f setPos, float setLifetime, sf::Vector2f setVelocity)
 		: scale{ setScale }, pos{ setPos }, lifetime{ setLifetime }, velocity{ setVelocity } {}
@@ -55,8 +55,10 @@ namespace ownProject {
 
 
 	particleSystem::particleSystem(unsigned int particlesCount)
-		: particle(getScale(),getPos(),getLifetime(),getVelocity())
-	{}
+		: vertices(sf::Points, particlesCount), particle(getScale(),getPos(),getLifetime(),getVelocity())
+	{
+		particles.reserve(particlesCount);
+	}
 
 	void particleSystem::update(float dt)
 	{
@@ -83,7 +85,7 @@ namespace ownProject {
 			// 1 millisecond == 1/000 second, 1 second = 1000 milisecond
 			float ratio = elem.getLifetime() / getLifetime();
 			// a is alpha
-			vertices[i].color.a = static_cast<unsigned int>(ratio * 255);
+			vertices[i].color.a = static_cast<sf::Uint8>(ratio * 255);
 
 		}
 	}
@@ -91,7 +93,15 @@ namespace ownProject {
 	void particleSystem::resetParticle(size_t index)
 	{
 		// Give random velocity and lifetime to particle
-		float angle = (std::rand() % 360);
+		float angle = (std::rand() % 360) * static_cast<float>(M_PI) / 180.f;
+		float velo = (std::rand() % 75) + 75.f;
+		particles[index].getVelocity() = sf::Vector2f(std::cos(angle) * velo, std::sin(angle) * velo);
+		// 1 millisecond == 1/000 second, 1 second = 1000 milisecond
+		particles[index].getLifetime() = sf::milliseconds((std::rand() % 2000) + 1000).asSeconds();
+
+		// Reset pos of corresponding vertex
+		vertices[index].position = getPos();
+
 	}
 
 }
