@@ -3,61 +3,32 @@
 
 namespace ownProject {
 
-	// particle::particle() {}
-
-	particle::particle(sf::Vector2i setScale, sf::Vector2f setPos, float setLifetime, sf::Vector2f setVelocity)
-		: scale{ setScale }, pos{ setPos }, lifetime{ setLifetime }, velocity{ setVelocity } {}
-
-	sf::Vector2i& particle::getScale()
-	{
-		return scale;
-	}
-
-	sf::Vector2f& particle::getPos()
-	{
-		return pos;
-	}
-
 	float& particle::getLifetime()
 	{
 		return lifetime;
 	}
 
-	sf::Vector2f& particle::getVelocity()
-	{
+	sf::Vector2f& particle::getVelocity() {
 		return velocity;
 	}
 
-	sf::Vector2i particle::getScale() const
-	{
-		return scale;
-	}
-
-	sf::Vector2f particle::getPos() const
-	{
-		return pos;
-	}
-
-	float particle::getLifetime() const
-	{
+	float particle::getLifetime() const {
 		return lifetime;
 	}
 
-	sf::Vector2f particle::getVelocity() const
-	{
+	sf::Vector2f particle::getVelocity() const {
 		return velocity;
-	}
-
-	void particle::setPos(sf::Vector2f toSet)
-	{
-		pos = toSet;
 	}
 
 
 	particleSystem::particleSystem(unsigned int particlesCount)
-		: vertices(sf::Points, particlesCount), particle(getScale(),getPos(),getLifetime(),getVelocity())
+		: vertices(sf::Points, particlesCount), particles(particlesCount), particlesDuration{ PARTICLE_DURATION }, pos{0.f,0.f}
 	{
-		particles.reserve(particlesCount);
+	}
+
+	void particleSystem::setPos(sf::Vector2f toSet)
+	{
+		pos = toSet;
 	}
 
 	void particleSystem::update(float dt)
@@ -83,7 +54,7 @@ namespace ownProject {
 			// Update alpha of (transparency) of particle according to each particle's lifetime
 
 			// 1 millisecond == 1/000 second, 1 second = 1000 milisecond
-			float ratio = elem.getLifetime() / getLifetime();
+			float ratio = elem.getLifetime() / particlesDuration;
 			// a is alpha
 			vertices[i].color.a = static_cast<sf::Uint8>(ratio * 255);
 
@@ -100,8 +71,24 @@ namespace ownProject {
 		particles[index].getLifetime() = sf::milliseconds((std::rand() % 2000) + 1000).asSeconds();
 
 		// Reset pos of corresponding vertex
-		vertices[index].position = getPos();
+		vertices[index].position = pos;
 
 	}
+
+	void particleSystem::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
+
+		// apply the transform
+		states.transform *= getTransform();
+
+		// our particles don't use a texture
+		states.texture = NULL;
+
+		// draw the vertex array
+		target.draw(vertices, states);
+
+	}
+
+
 
 }

@@ -4,6 +4,11 @@
 
 namespace ownProject {
 
+	namespace {
+		std::unique_ptr<particleSystem> particleObj = std::make_unique<particleSystem>(1500);
+	}
+	
+
 	fireworks::fireworks(gameDataRef paramData) : data{paramData}
 	{
 	}
@@ -38,12 +43,20 @@ namespace ownProject {
 	{
 		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
+		// Make particle follow mouse
+		sf::Vector2i mousePos = mouse.getPosition(data->window);
+		particleObj->setPos(data->window.mapPixelToCoords(mousePos));
+		particleObj->update(dt);
 	}
 
 	void fireworks::Draw(float dt)
 	{
 		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
+		std::cout << dt << std::endl;
+		data->window.clear();
+		data->window.draw(*particleObj);
+		data->window.display();
 	}
 
 

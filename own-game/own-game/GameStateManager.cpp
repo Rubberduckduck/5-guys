@@ -66,11 +66,6 @@ namespace ownProject {
 		return this->GameStates.top();
 	}
 
-	stateManager::~stateManager()
-	{
-		FreeStates();
-	}
-
 
 }
 

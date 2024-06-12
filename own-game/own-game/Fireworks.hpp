@@ -6,6 +6,7 @@
 #include "pch.hpp"
 #include "state.hpp"
 #include "GameLoop.hpp"
+#include "ParticleSystem.hpp"
 
 namespace ownProject {
 
@@ -22,7 +23,7 @@ namespace ownProject {
 
 	private:
 		gameDataRef data;
-
+		sf::Mouse mouse;
 	};
 }
 

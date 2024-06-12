@@ -9,15 +9,8 @@ namespace ownProject {
 
 	mainMenu::mainMenu(gameDataRef paramData) : data{paramData} {}
 
-	mainMenu::~mainMenu()
-	{
-		data->window.clear();
-	}
-
 	void mainMenu::Init()
 	{
-
-		std::cout << "mainMenu" << std::endl;
 
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("mainMenu button texture", MAIN_MENU_BUTTON_TEXTURE);
