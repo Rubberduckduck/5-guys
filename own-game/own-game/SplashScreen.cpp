@@ -12,6 +12,10 @@ namespace ownProject {
 
 	splashScreen::splashScreen(gameDataRef paramData) : data(paramData) {}
 
+	void splashScreen::Load()
+	{
+	}
+
 	void splashScreen::Init()
 	{
 		// To load texture and set texture to the sprite using std::string
@@ -38,11 +42,7 @@ namespace ownProject {
 			// To close window properly, without this if statement, window does not close properly
 			if (sf::Event::Closed == event.type)
 			{
-
-				
 				data->window.close();
-				// Free memory
-				//data.reset();
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
@@ -81,12 +81,21 @@ namespace ownProject {
 
 	void splashScreen::Draw(float dt)
 	{
+
 		static_cast<void>(dt);
 
 		data->window.clear();
 		data->window.draw(splashSprite);
 		data->window.display();
 
+	}
+
+	void splashScreen::Free()
+	{
+	}
+
+	void splashScreen::Unload()
+	{
 	}
 }
 

@@ -72,6 +72,7 @@ namespace ownProject {
 
 		// Reset pos of corresponding vertex
 		vertices[index].position = pos;
+		// vertices[index].color = 
 
 	}
 

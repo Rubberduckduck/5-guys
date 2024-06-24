@@ -9,9 +9,13 @@ namespace ownProject {
 
 	mainMenu::mainMenu(gameDataRef paramData) : data{paramData} {}
 
+	void mainMenu::Load()
+	{
+	}
+
 	void mainMenu::Init()
 	{
-
+		std::cout << "Init" << std::endl;
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("mainMenu button texture", MAIN_MENU_BUTTON_TEXTURE);
 		mainMenuBtnSprite.setTexture(this->data->assetManager.GetTexture("mainMenu button texture"));
@@ -35,6 +39,8 @@ namespace ownProject {
 
 	void mainMenu::HandleInput()
 	{
+		std::cout << "HandleInput" << std::endl;
+
 		sf::Event event;
 		sf::Keyboard keyboard;
 
@@ -56,6 +62,8 @@ namespace ownProject {
 
 	void mainMenu::Update(float dt)
 	{
+		std::cout << "Update" << std::endl;
+
 		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
 
@@ -66,11 +74,19 @@ namespace ownProject {
 	void mainMenu::Draw(float dt)
 	{
 
+		std::cout << "Draw" << std::endl;
+
 		// This is same as UNREFERENCED_PARAMETER
 		static_cast<void>(dt);
 		mainMenuBtns->draw(data->window, mainMenuBtnText);
 	}
 
+	void mainMenu::Free()
+	{
+	}
 
+	void mainMenu::Unload()
+	{
+	}
 }
 

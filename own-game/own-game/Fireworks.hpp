@@ -16,10 +16,13 @@ namespace ownProject {
 		fireworks(gameDataRef paramData);
 
 		// State functions
+		void Load();
 		void Init();
 		void HandleInput();
 		void Update(float dt);
 		void Draw(float dt);
+		void Free();
+		void Unload();
 
 	private:
 		gameDataRef data;

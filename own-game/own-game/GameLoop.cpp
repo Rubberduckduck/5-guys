@@ -27,16 +27,18 @@ namespace ownProject
 		*******************************************************************/
 		while (this->data->window.isOpen())
 		{
+
 			// First thing, update GS (game states)
+			// Init is called through update states
 			this->data->stateManager.UpdateStates();
 
 			newTime = this->clock.getElapsedTime().asSeconds();
 			frameTime = newTime - currentTime;
 		
 			// Prevent frame time from going too high
-			if (frameTime > 0.25f)
+			if (frameTime > 0.60f)
 			{
-				frameTime = 0.25f;
+				frameTime = 0.60f;
 			}
 
 			currentTime = newTime;

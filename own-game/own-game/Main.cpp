@@ -26,6 +26,7 @@
 
 int main()
 {
+	// For memory leak checks
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	ownProject::gameLoop(WINDOW_HEIGHT, WINDOW_WIDTH, "BRY OWN SIMULATIONS");

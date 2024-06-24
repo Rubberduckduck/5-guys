@@ -13,6 +13,10 @@ namespace ownProject {
 	{
 	}
 
+	void fireworks::Load()
+	{
+	}
+
 	void fireworks::Init()
 	{
 		std::cout << "fireworks state" << std::endl;
@@ -59,5 +63,11 @@ namespace ownProject {
 		data->window.display();
 	}
 
+	void fireworks::Free()
+	{
+	}
 
+	void fireworks::Unload()
+	{
+	}
 }

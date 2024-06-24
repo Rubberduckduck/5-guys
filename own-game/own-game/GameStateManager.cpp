@@ -49,8 +49,6 @@ namespace ownProject {
 			}
 			// Add state to GameStates
 			this->GameStates.push(std::move(this->state));
-			// Call the init state
-			this->GameStates.top()->Init();
 			this->isAdded = false;
 		}
 	}
