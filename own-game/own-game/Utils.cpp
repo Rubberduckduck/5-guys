@@ -2,6 +2,7 @@
 #include "Utils.hpp"
 #include "Defines.hpp"
 #include "Fireworks.hpp"
+#include "Sand.hpp"
 
 namespace ownProject {
 	button::button(float paramScale, sf::Vector2f paramPos, std::string paramText, buttonID buttonID, sf::Sprite paramSprite)
@@ -165,15 +166,18 @@ namespace ownProject {
 				{
 				case TYPE_FIREWORKS:
 					deleteButton();
-					paramData->stateManager.AddState(stateRef(new fireworks	(paramData)),true);
 					next = GS_Fireworks;
+					paramData->stateManager.AddState(stateRef(new fireworks(paramData)),true);
 					break;
 
 				case TYPE_SAND:
-					std::cout << "sand button clicked" << std::endl;
+					deleteButton();
+					next = GS_Sand;
+					paramData->stateManager.AddState(stateRef(new sand(paramData)), true);
 					break;
 
 				case TYPE_WATER:
+					deleteButton();
 					std::cout << "water button clicked" << std::endl;
 					break;
 

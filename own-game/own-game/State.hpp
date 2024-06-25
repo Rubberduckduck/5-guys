@@ -35,6 +35,7 @@ namespace ownProject {
 		GS_SplashScreen = 0,
 		GS_MainMenu,
 		GS_Fireworks,
+		GS_Sand,
 
 		// Restart and Exit is last 2 enums! Do not CHANGE
 		GS_Restart,

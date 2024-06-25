@@ -84,6 +84,9 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="Sand.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp">
@@ -120,6 +123,9 @@
       <Filter>Header Files\Render</Filter>
     </ClInclude>
     <ClInclude Include="Fireworks.hpp">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="Sand.hpp">
       <Filter>Header Files\Simulations</Filter>
     </ClInclude>
   </ItemGroup>
