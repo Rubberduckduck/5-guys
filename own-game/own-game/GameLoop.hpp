@@ -46,8 +46,6 @@ namespace ownProject {
 		void free();
 	};
 
-	extern gameStateType current, previous, next;
-
 }
 
 #endif // GAMELOOP

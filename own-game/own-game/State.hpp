@@ -31,7 +31,13 @@ namespace ownProject {
 	};
 
 	enum gameStateType {
-		GS_Restart = 0,
+
+		GS_SplashScreen = 0,
+		GS_MainMenu,
+		GS_Fireworks,
+
+		// Restart and Exit is last 2 enums! Do not CHANGE
+		GS_Restart,
 		GS_Exit,
 	};
 }

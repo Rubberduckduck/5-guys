@@ -14,10 +14,14 @@ namespace ownProject {
 
 	void splashScreen::Load()
 	{
+		//std::cout << "Load" << std::endl;
+
 	}
 
 	void splashScreen::Init()
 	{
+		//std::cout << "init" << std::endl;
+
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("splashScreen texture", SPLASHSCREEN_TEXTURE);
 		splashSprite.setTexture(this->data->assetManager.GetTexture("splashScreen texture"));

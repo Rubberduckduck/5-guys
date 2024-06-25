@@ -2,6 +2,16 @@
 #include "GameStateManager.hpp"
 
 namespace ownProject {
+
+	gameStateType current = GS_SplashScreen;
+	gameStateType next = GS_SplashScreen;
+	gameStateType previous = GS_SplashScreen;
+
+	stateManager::stateManager()
+	{
+		current = previous = next = GS_SplashScreen;
+	}
+
 	void stateManager::AddState(stateRef newState, bool isReplacing)
 	{
 		this->isAdded = true;
@@ -22,6 +32,11 @@ namespace ownProject {
 		// Handling removing of state
 		if (this->isRemoved && !this->GameStates.empty()) {
 			// Remove state
+			this->GetActiveState()->Free();
+			if (next != GS_Restart)
+			{
+				this->GetActiveState()->Unload();
+			}
 			this->GameStates.pop();
 			// Check if there are any states left
 			if (!this->GameStates.empty())
@@ -40,6 +55,11 @@ namespace ownProject {
 				// Replace current state
 				if (this->isReplaced) {
 					// Remove current state
+					this->GetActiveState()->Free();
+					if (next != GS_Restart)
+					{
+						this->GetActiveState()->Unload();
+					}
 					this->GameStates.pop();
 				}
 				// Dont do anyth
@@ -49,6 +69,17 @@ namespace ownProject {
 			}
 			// Add state to GameStates
 			this->GameStates.push(std::move(this->state));
+			if (current == GS_Restart)
+			{
+				current = previous;
+				next = previous;
+			}
+			else {
+				// First thing, update GS (game states)
+				this->GetActiveState()->Load();
+			}
+			// Call Init here
+			this->GetActiveState()->Init();
 			this->isAdded = false;
 		}
 	}
@@ -56,6 +87,8 @@ namespace ownProject {
 	void stateManager::FreeStates()
 	{
 		while (!GameStates.empty()) {
+			this->GetActiveState()->Free();
+			this->GetActiveState()->Unload();
 			GameStates.pop(); 
 		}
 	}

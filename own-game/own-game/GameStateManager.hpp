@@ -1,7 +1,6 @@
 #pragma once
 
 #include "pch.hpp"
-
 #include "State.hpp"
 
 #ifndef STATEMANAGER
@@ -19,8 +18,8 @@ namespace ownProject {
 	class stateManager
 	{
 	public:
-		stateManager() {}
-		
+		stateManager();
+
 		void AddState(stateRef newState, bool isReplacing = false); // isReplacing boolean is used for replacing current state
 		void RemoveState();
 
@@ -39,6 +38,9 @@ namespace ownProject {
 		bool isRemoved = false;
 		bool isReplaced = false;
 	};
+
+
+	extern gameStateType current, previous, next;
 
 }
 

@@ -1,6 +1,6 @@
 #include "pch.hpp"
 #include "GameLoop.hpp"
-#include "SplashScreen.hpp"
+#include "SplashScreen.hpp"	
 
 namespace ownProject 
 {
@@ -17,7 +17,7 @@ namespace ownProject
 
 	void gameLoop::run()
 	{
-		float newTime{}, frameTime{}, interpolation{};
+		float newTime{}, frameRate{}, interpolation{};
 
 		float currentTime = this->clock.getElapsedTime().asSeconds();
 		float accumulatedTime = 0.f;
@@ -27,22 +27,20 @@ namespace ownProject
 		*******************************************************************/
 		while (this->data->window.isOpen())
 		{
-
 			// First thing, update GS (game states)
-			// Init is called through update states
 			this->data->stateManager.UpdateStates();
 
 			newTime = this->clock.getElapsedTime().asSeconds();
-			frameTime = newTime - currentTime;
-		
-			// Prevent frame time from going too high
-			if (frameTime > 0.60f)
+			frameRate = newTime - currentTime;
+
+			// Prevent frame rate from going too high
+			if (frameRate > 0.60f)
 			{
-				frameTime = 0.60f;
+				frameRate = 0.60f;
 			}
 
 			currentTime = newTime;
-			accumulatedTime += frameTime;
+			accumulatedTime += frameRate;
 			while (accumulatedTime >= deltaTime)
 			{
 				this->data->stateManager.GetActiveState()->HandleInput();
@@ -56,9 +54,9 @@ namespace ownProject
 				Interpolation is calculated as the ratio of accumulatedTime to deltaTime. This ratio represents how far along the current frame is between updates.
 				Interpolation is commonly used in game rendering to smoothly animate objects or transitions between frames, especially when frame rates vary.
 				By using interpolation, visual artifacts such as jittery motion or sudden changes in position can be reduced, resulting in smoother and more visually appealing graphics.
-			* 
+			*
 			* Drawing with Interpolation:
-				Finally, the active game state's draw function is called, passing the interpolation value as a parameter. 
+				Finally, the active game state's draw function is called, passing the interpolation value as a parameter.
 				This allows the rendering code to adjust the position, rotation,
 				or other properties of game objects based on the current interpolation value, ensuring smooth rendering between frames.
 			*/
