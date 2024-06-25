@@ -14,13 +14,11 @@ namespace ownProject {
 
 	void splashScreen::Load()
 	{
-		//std::cout << "Load" << std::endl;
 
 	}
 
 	void splashScreen::Init()
 	{
-		//std::cout << "init" << std::endl;
 
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("splashScreen texture", SPLASHSCREEN_TEXTURE);
@@ -50,6 +48,7 @@ namespace ownProject {
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
+				next = GS_MainMenu;
 				data->stateManager.AddState(stateRef(new mainMenu(this->data)),true);
 			}
 		}
@@ -67,6 +66,7 @@ namespace ownProject {
 			splashTimer += clock.restart().asSeconds();
 		}
 		else {
+			next = GS_MainMenu;
 			data->stateManager.AddState(stateRef(new mainMenu(this->data)),true);
 		}
 

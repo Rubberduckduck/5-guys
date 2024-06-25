@@ -38,6 +38,7 @@ namespace ownProject {
 			}
 			if (keyboard.isKeyPressed(sf::Keyboard::Escape))
 			{
+				next = GS_MainMenu;
 				data->stateManager.AddState(stateRef(new mainMenu(data)), true);
 			}
 		}

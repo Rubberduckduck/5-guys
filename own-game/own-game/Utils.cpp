@@ -166,6 +166,7 @@ namespace ownProject {
 				case TYPE_FIREWORKS:
 					deleteButton();
 					paramData->stateManager.AddState(stateRef(new fireworks	(paramData)),true);
+					next = GS_Fireworks;
 					break;
 
 				case TYPE_SAND:
@@ -178,6 +179,7 @@ namespace ownProject {
 
 				case TYPE_QUIT:
 					deleteButton();
+					next = GS_Exit;
 					paramData->window.close();
 					break;
 

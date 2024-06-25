@@ -11,10 +11,13 @@ namespace ownProject {
 
 	void mainMenu::Load()
 	{
+		std::cout << "Load" << std::endl;
 	}
 
 	void mainMenu::Init()
 	{
+		std::cout << "Init" << std::endl;
+
 		// To load texture and set texture to the sprite using std::string
 		data->assetManager.LoadTexture("mainMenu button texture", MAIN_MENU_BUTTON_TEXTURE);
 		mainMenuBtnSprite.setTexture(this->data->assetManager.GetTexture("mainMenu button texture"));
