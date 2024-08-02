@@ -5,8 +5,8 @@
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 
+#ifndef GAMELOOP
 #define GAMELOOP
-#ifdef GAMELOOP
 
 namespace ownProject {
 	

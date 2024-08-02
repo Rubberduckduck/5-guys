@@ -176,7 +176,7 @@ namespace ownProject {
 					paramData->stateManager.AddState(stateRef(new sand(paramData)), true);
 					break;
 
-				case TYPE_WATER:
+				case TYPE_BALL:
 					deleteButton();
 					std::cout << "water button clicked" << std::endl;
 					break;

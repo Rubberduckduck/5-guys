@@ -87,6 +87,15 @@
     <ClCompile Include="Sand.cpp">
       <Filter>Source Files\Simulations</Filter>
     </ClCompile>
+    <ClCompile Include="SandSystem.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="BouncingBalls.cpp">
+      <Filter>Source Files\Simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="Balls.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp">
@@ -126,6 +135,15 @@
       <Filter>Header Files\Simulations</Filter>
     </ClInclude>
     <ClInclude Include="Sand.hpp">
+      <Filter>Header Files\Simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="SandSystem.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Balls.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="BouncingBalls.hpp">
       <Filter>Header Files\Simulations</Filter>
     </ClInclude>
   </ItemGroup>

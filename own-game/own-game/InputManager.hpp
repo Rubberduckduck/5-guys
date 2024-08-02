@@ -1,8 +1,8 @@
 #pragma once
 #include "pch.hpp"
 
+#ifndef INPUTMANAGER
 #define INPUTMANAGER
-#ifdef INPUTMANAGER
 
 namespace ownProject {
 	class inputManager

@@ -30,5 +30,8 @@
 #define PARTICLE_COUNT 1000
 #define PARTICLE_DURATION 2.5f
 
+// Grid row and column sizes
+#define GRID_ROW_COUNT 30
+#define GRID_COLUMN_COUNT 30
 
 #define M_PI 3.14159265358979323846f

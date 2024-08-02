@@ -11,7 +11,7 @@ namespace ownProject {
 	enum buttonID {
 		TYPE_FIREWORKS = 0,
 		TYPE_SAND,
-		TYPE_WATER,
+		TYPE_BALL,
 		TYPE_QUIT,
 	};
 

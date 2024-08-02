@@ -35,7 +35,7 @@ namespace ownProject {
 		float buttonMargin = WINDOW_HEIGHT / 6;
 		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y, "FIREWORKS (WIP)", TYPE_FIREWORKS, mainMenuBtnSprite);
 		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin , "SAND (NOT STARTED)", TYPE_SAND, mainMenuBtnSprite);
-		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 2, "WATER (NOT STARTED)", TYPE_WATER, mainMenuBtnSprite);
+		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 2, "BOUNCING BALL (WIP)", TYPE_BALL, mainMenuBtnSprite);
 		mainMenuBtns->addButton(BUTTON_SCALE, startingButton.x, startingButton.y + buttonMargin * 3, "QUIT", TYPE_QUIT, mainMenuBtnSprite);
 	}
 

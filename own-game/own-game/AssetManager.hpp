@@ -2,8 +2,8 @@
 
 #include "pch.hpp"
 
+#ifndef ASSETMANAGER
 #define ASSETMANAGER
-#ifdef ASSETMANAGER
 
 // Temporary, for now we try use strings to tag assets
 enum textureID

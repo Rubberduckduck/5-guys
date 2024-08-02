@@ -117,6 +117,8 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Balls.cpp" />
+    <ClCompile Include="BouncingBalls.cpp" />
     <ClCompile Include="Fireworks.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
@@ -129,11 +131,14 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Sand.cpp" />
+    <ClCompile Include="SandSystem.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="Balls.hpp" />
+    <ClInclude Include="BouncingBalls.hpp" />
     <ClInclude Include="Defines.hpp" />
     <ClInclude Include="Fireworks.hpp" />
     <ClInclude Include="GameLoop.hpp" />
@@ -143,6 +148,7 @@ xcopy "$(SolutionDir)Extern\SFML\dll\sfml-window-2.dll" "$(OutDir)" /s /r /y /q<
     <ClInclude Include="ParticleSystem.hpp" />
     <ClInclude Include="pch.hpp" />
     <ClInclude Include="Sand.hpp" />
+    <ClInclude Include="SandSystem.hpp" />
     <ClInclude Include="SplashScreen.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="Utils.hpp" />
